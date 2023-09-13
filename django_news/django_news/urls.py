@@ -19,5 +19,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('news.urls')),
+
+    # www.xxx.com/   -> 函数(编写于 views 中)
+    path('', include('news.urls')),   # 这里 全局的 urls 对应 app中的urls，再由app中的urls 对应到具体的 views
 ]
