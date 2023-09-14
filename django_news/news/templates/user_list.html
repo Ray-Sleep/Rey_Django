@@ -1,11 +1,15 @@
+{# 配置静态文件 #}
+{%  load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{% static 'img/th.png' %}">
 </head>
 <body>
     <h1>用户列表</h1>
-    <img src='' alt="">
+    <img src='{% static 'img/th.png' %}' alt="">
 </body>
 </html>

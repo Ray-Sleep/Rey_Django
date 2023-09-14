@@ -5,6 +5,48 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>添加用户</h1>
+    <h1>添加用户 模板语法学习</h1>
+    <ul>
+        <li>{{ n1 }}</li>
+        <li>{{ n2 }}</li>
+    </ul>
+
+    <div>
+        {{ n2.0 }}
+        {{ n2.1 }}
+        {{ n2.2 }}
+    </div>
+
+    <div>
+        {% for item in n2 %}
+        <span>
+            {{ item }}
+        </span>
+        {% endfor %}
+    </div>
+<hr/>
+    {{ n3 }}
+    <div>
+        {% for k,v in n3.items %}
+            {{ k }} = {{ v }}
+        {% endfor %}
+    </div>
+    <ul>
+        <li>{{ n3.k }} = {{ n3.name }}</li>
+        <li>{{ n3.salary }}</li>
+        <li>{{ n3.role }}</li>
+    </ul>
+<hr/>
+    {{ n4.0 }}
+    {{ n4.1.name }}
+
+<hr/>
+
+    {% if n1 == 'Rey'%}
+        <h1>Hello Rey</h1>
+    {% else %}
+        <h2>hello world</h2>
+    {% endif %} 
+
 </body>
 </html>
