@@ -32,13 +32,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #这些都是 Django 自带的 app,这些app都依赖数据库，所以会一同在数据库中创建
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'news',
+    'news.apps.NewsConfig'
 ]
 
 MIDDLEWARE = [
@@ -71,17 +72,27 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'django_news.wsgi.application'
 
-
+# Django 数据库默认设置
 # Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+#
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'rey_django',
+        'USER': 'root',
+        'PASSWORD': '030806',
+        # Mysql 服务器地址
+        'HOST': 'localhost',
+        # 端口
+        'PORT': '3306',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

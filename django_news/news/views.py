@@ -2,11 +2,20 @@
 
 from django.shortcuts import render, HttpResponse, redirect
 import requests
+import json
 
 def index(req):
+    if  req.method == 'GET':
+        return render(req, 'user_login.html')
 
-    return render(req, 'news.html')
+    print(req.POST)
+    username = req.POST.get('user')
+    password = req.POST.get('pwd')
 
+    # 校验 (在数据库进行校验)
+    if username == 'admin' and password == '123':
+        return HttpResponse('登录成功')
+    return render(req,'user_login.html',{'error_msg':'用户名或密码错误'})
 
 def something (req):
     # context = {'news_list': Post.objects.all()}
@@ -39,16 +48,6 @@ def test(req):
 
     # 重定向 让服务器
     return redirect('http://www.baidu.com')
-
-
-def user_login(req):
-
-    if req.method == 'GET':
-        return render(req, 'user_login.html')
-    else:
-
-        print(req.POST)
-        return HttpResponse('登录成功')
 
 
 def user_list(req):
