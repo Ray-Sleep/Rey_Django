@@ -6,10 +6,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="{% static 'img/th.png' %}">
 </head>
 <body>
-    <h1>用户列表</h1>
-    <img src='{% static 'img/th.png' %}' alt="">
+    <h1>Info列表</h1>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>姓名</th>
+            <th>电话</th>
+            <th>密码</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for obj in data_list %}
+            <tr>
+                <td>{{ obj.id }}</td>
+                <td>{{ obj.name }}</td>
+                <td>{{ obj.number }}</td>
+                <td>{{ obj.password }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>
